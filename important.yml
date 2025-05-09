@@ -4,3 +4,8 @@ Resources:
      Properties: 
         ImageId: ami-058a8a5ab36292159
         InstanceType: t2.micro
+        Tags: 
+        - Key: "department"
+          Value: "value1"
+        - Key: ""
+          Value: "value2"
