@@ -6,9 +6,9 @@ Mappings:
     us-east-1:
       MyAMI1: ami-0f88e80871fd81e91
     us-west-1:
-      MyAMI1: ami-04fc83311a8d478df
+      MyA1: ami-04fc83311a8d478df
     us-east-2:
-      MyAMI1: ami-058a8a5ab36292159
+      AMI1: ami-058a8a5ab36292159
 
 Resources:
   myInstance:
@@ -17,6 +17,6 @@ Resources:
       ImageId:
         Fn::FindInMap:
           - EC2MAPPING
-          - Ref: AWS::Region
+          - Ref: us-east-1
           - MyAMI1
       InstanceType: t2.micro
