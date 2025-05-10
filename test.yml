@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Launch an EC2 instance using a region-based AMI mapping
+
+Mappings:
+  EC2MAPPING:
+    us-east-1:
+      MyAMI1: ami-0f88e80871fd81e91
+    us-west-1:
+      MyAMI1: ami-04fc83311a8d478df
+    us-east-2:
+      MyAMI1: ami-058a8a5ab36292159
+
+Resources:
+  myInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId:
+        Fn::FindInMap:
+          - EC2MAPPING
+          - Ref: AWS::Region
+          - MyAMI1
+      InstanceType: t2.micro
